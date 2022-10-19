@@ -1,1 +1,1 @@
-Loops function
+Loops functions
