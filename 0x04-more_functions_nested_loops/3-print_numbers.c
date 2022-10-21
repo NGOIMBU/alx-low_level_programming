@@ -1,15 +1,27 @@
 #include "main.h"
+
 /**
-* print_numbers - prints 0123456789\n
-*
-* Return: void
-*/
-void print_numbers(void)
+ * print_alphabet_x10 - print alphabet
+ *
+ * Return: Always 0.
+ */
+void print_alphabet_x10(void)
 {
-char c;
-for (c = '0'; c <= '9'; c++)
+int alphabet;
+int count;
+
+
+count = 0;
+while (count < 10)
 {
-_putchar(c);
+for (alphabet = 'a' ; alphabet <= 'z'; alphabet++)
+{
+_putchar(alphabet);
 }
+
+count++;
 _putchar('\n');
+}
+
+
 }
