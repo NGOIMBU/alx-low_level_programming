@@ -25,5 +25,3 @@ p = *head;
 *head = p;
 return (*head);
 }
-
-
