@@ -1,13 +1,36 @@
-#include "main.h"
+#include <stdio.h>
 
+#include <time.h>
+
+#include <stdlib.h>
 /**
- * print_binary - Prints the binary representation of a number.
- * @n: The number to be printed in binary.
+ * main - main block
+ * Description: Get a random number and print the number
+ * positive,nagetive or zero
+ * Return: Always 0 (success)
  */
-void print_binary(unsigned long int n)
+int main(void)
 {
-	if (n > 1)
-		print_binary(n >> 1);
+	int n;
+	int last;
 
-	_putchar((n & 1) + '0');
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
+	last = n % 10;
+
+	if (last == 0)
+	{
+		printf("Last digit of %d is %d and is 0\n", n, last);
+	}
+	else
+	{
+		if (last > 5)
+		{
+			printf("Last digit of %d is %d and is greater than 5\n", n, last);
+		}
+		else if (last < 6)
+		{
+			printf("Last digit of %d is %d and is less than 6 and not 0\n", n, last);
+		}
+	}	return (0);
 }
