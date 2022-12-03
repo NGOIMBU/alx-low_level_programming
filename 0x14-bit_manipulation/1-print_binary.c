@@ -1,36 +1,48 @@
-#include <stdio.h>
+#include "main.h"
 
-#include <time.h>
-
-#include <stdlib.h>
 /**
- * main - main block
- * Description: Get a random number and print the number
- * positive,nagetive or zero
- * Return: Always 0 (success)
+ * _pow - calculates (base ^ power)
+ * @base: base of the exponent
+ * @power: power of the exponent
+ *
+ * Return: value of (base ^ power)
  */
-int main(void)
+unsigned long int _pow(unsigned int base, unsigned int power)
 {
-	int n;
-	int last;
+	unsigned long int num;
+	unsigned int i;
 
-	srand(time(0));
-	n = rand() - RAND_MAX / 2;
-	last = n % 10;
+	num = 1;
+	for (i = 1; i <= power; i++)
+		num *= base;
+	return (num);
+}
 
-	if (last == 0)
+/**
+ * print_binary - prints a number in binary notation
+ * @n: number to print
+ *
+ * Return: void
+ */
+void print_binary(unsigned long int n)
+{
+	unsigned long int divisor, check;
+	char flag;
+
+	flag = 0;
+	divisor = _pow(2, sizeof(unsigned long int) * 8 - 1);
+	while (divisor != 0)
 	{
-		printf("Last digit of %d is %d and is 0\n", n, last);
+		check = n & divisor;
+		if (check == divisor)
+		{
+			flag = 1;
+			_putchar('1');
+		}
+		else if (flag == 1 || divisor == 1)
+		{
+			_putchar('0');
+		}
+		divisor >>= 1;
 	}
-	else
-	{
-		if (last > 5)
-		{
-			printf("Last digit of %d is %d and is greater than 5\n", n, last);
-		}
-		else if (last < 6)
-		{
-			printf("Last digit of %d is %d and is less than 6 and not 0\n", n, last);
-		}
-	}	return (0);
 }
