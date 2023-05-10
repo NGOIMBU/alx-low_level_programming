@@ -5,6 +5,8 @@
  *             linked list of integers using jump search.
  * @list: A pointer to the  head of the linked list to search.
  * @size: The number of nodes in the list.
+ * @value: The value to search for.
+ *
  * Return: If the value is not present or the head of the list is NULL, NULL.
  *         Otherwise, a pointer to the first node where the value is located.
  *
